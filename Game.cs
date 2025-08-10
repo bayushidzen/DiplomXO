@@ -39,5 +39,46 @@
                 Console.WriteLine("\nНичья!");
             }
         }
+        public static void MainMenu()
+        {
+            bool isGameActive = true;
+            bool isFirstRun = true;
+            while (isGameActive)
+            {
+                if (isFirstRun)
+                {
+                    Console.WriteLine("Вы хотите начать игру?");
+                    Console.WriteLine("1 - Да 2 - Нет");
+                    Console.Write("Ваш выбор: ");
+                }
+                else
+                {
+                    Console.WriteLine("Вы хотите сыграть еще раз?");
+                    Console.WriteLine("1 - Да 2 - Нет");
+                    Console.Write("Ваш выбор: ");
+                }
+
+                string userInput = Console.ReadLine();
+                int userChoice;
+                if (int.TryParse(userInput, out userChoice))
+                {
+                    switch (userChoice)
+                    {
+                        case 1:
+                            isFirstRun = false;
+                            Console.WriteLine();
+                            var map = Map.GenerateMap();
+                            MainGame(map);
+                            break;
+                        case 2: isGameActive = false; break;
+                        default: Console.WriteLine("Неверный ввод. Пожалуйста, введите цифру от 1 до 2."); break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Неверный ввод. Пожалуйста, введите цифру от 1 до 2.");
+                }
+            }
+        }
     }
 }
