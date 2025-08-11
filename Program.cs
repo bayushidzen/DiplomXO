@@ -16,7 +16,7 @@
             Console.ResetColor();
             Console.WriteLine(" - синим");
             Console.WriteLine();
-            Game.MainMenu();
+            Game.LaunchMenu();
         }
     }
 }

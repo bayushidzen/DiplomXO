@@ -2,7 +2,7 @@
 {
     internal class Game
     {
-        public static void MainGame(string[,] map)
+        public static void PlayGame(string[,] map)
         {
             bool team = true;
             int round = 1;
@@ -39,7 +39,7 @@
                 Console.WriteLine("\nНичья!");
             }
         }
-        public static void MainMenu()
+        public static void LaunchMenu()
         {
             bool isGameActive = true;
             bool isFirstRun = true;
@@ -68,7 +68,7 @@
                             isFirstRun = false;
                             Console.WriteLine();
                             var map = Map.GenerateMap();
-                            MainGame(map);
+                            PlayGame(map);
                             break;
                         case 2: isGameActive = false; break;
                         default: Console.WriteLine("Неверный ввод. Пожалуйста, введите цифру от 1 до 2."); break;
